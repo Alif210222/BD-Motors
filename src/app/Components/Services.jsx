@@ -19,7 +19,7 @@ const data = await serviceCollection.find({}).toArray()
                 
                    <img src={item.img} className='w-full h-50 rounded-t-xl'  alt="" />
                    <div className='p-4'>
-                     <h2 className='tetx-xl font-bold'> Service type :{item.title}</h2>
+                     <h2 className='tetx-xl font-bold'> Service type :{item.servicename}</h2>
                      <p className='text-red-500 font-medium'>Service Cost : {item.price}</p>
                      <div className='mt-3 '>
                         <Link href={`/services/${item._id}`} className=' hover:bg-gray-300 bg-gray-400  p-2 mt-2 rounded-xl'> Details</Link>

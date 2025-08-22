@@ -13,7 +13,7 @@ const data = await serviceCollection.findOne({_id: new ObjectId(p._id)})
         <div>
             <h1  className='text-center text-3xl mt-20  font-bold underline'> Services Details</h1>
         
-        <div className='max-w-6xl m-auto  mt-4 '>
+        <div className='max-w-6xl m-auto  mt-4 mb-20'>
              {/* <p>this is id : {JSON.stringify(data)}</p> */}
 
    <div className="hero bg-base-200 ">
