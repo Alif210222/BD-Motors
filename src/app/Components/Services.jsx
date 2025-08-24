@@ -16,11 +16,11 @@ const data = await serviceCollection.find({}).toArray()
         <div className='grid grid-cols-12 gap-6 mt-6'>
             
             {
-                data.map((item)=>  <div className='lg:col-span-4 md:col-span-6 col-span-12 border-2 border-gray-300  rounded-xl'> 
+                data.map((item,index)=>  <div key={index} className='lg:col-span-4 md:col-span-6 col-span-12 border-2 border-gray-300  rounded-xl'> 
                 
                    <img src={item.img} className='w-full h-50 rounded-t-xl'  alt="" />
                    <div className='p-4'>
-                     <h2 className='tetx-xl font-bold'> Service type :{item.servicename}</h2>
+                     <h2 className='text-xl font-bold'> Service type :{item.servicename}</h2>
                      <p className='text-red-500 font-medium'>Service Cost : {item.price}</p>
                      <div className='mt-3 '>
                         <Link href={`/services/${item._id}`} className=' hover:bg-gray-300 bg-gray-400  p-2 mt-2 rounded-xl'> Details</Link>

@@ -2,6 +2,7 @@
 
 import { useRouter } from "next/navigation";
 import React, { useState } from "react";
+import toast from "react-hot-toast";
 
 const Page = () => {
     const router = useRouter()
@@ -33,15 +34,15 @@ const Page = () => {
       });
 
       if (res.ok) {
-        alert("✅ Service added successfully!");
+        toast("✅ Service added successfully!");
         setFormData({ name: "", img: "", description: "", price: "" }); // clear form
           router.push("/products");  
       } else {
-        alert("❌ Failed to add service");
+       toast("❌ Failed to add service");
       }
     } catch (error) {
       console.error("Error:", error);
-      alert("❌ Something went wrong");
+     toast("❌ Something went wrong");
     }
   };
 

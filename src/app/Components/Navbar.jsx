@@ -1,18 +1,28 @@
-// "client site"
+"use client"
+import { signOut, useSession } from 'next-auth/react';
 import Link from 'next/link';
 import React from 'react';
 
 const Navbar = () => {
 
+  const {data,status} = useSession()
+  // console.log(status,data.user)
+ 
+
+
+
+
    const links = <>
    
    <li><Link href="/"> Home </Link></li>
    <li><Link href="/products"> Products </Link></li>
-   <li><Link href="/addProducts">Add Products </Link></li>
+
+   {
+      status == "authenticated" ? ( <li><Link href="/addProducts">Add Products </Link></li>) : ( <> </>)
+   }
+  
    <li><Link href="/about"> About </Link></li>
-   {/* {
-      user &&  <li><Link href=""> Dashboard </Link></li>
-   } */}
+   
   
            
     
@@ -44,9 +54,19 @@ const Navbar = () => {
       }
     </ul>
   </div>
-  <div className="navbar-end">
-    <Link href="/login" className="btn btn-outline'">Log in</Link>
+   <div className="navbar-end gap-4">  
+    
+  {
+    status == "authenticated" ? (<Link  href="" onClick={()=>signOut()} className="btn btn-outline">Log out</Link> ) : (<>
+              
+
+              <Link href="/login" className="btn btn-outline">Log in</Link>
+              <Link href="/register" className="btn btn-outline">Register</Link>
+               
+    </>)
+  }
   </div>
+ 
 </div>
     );
 };
